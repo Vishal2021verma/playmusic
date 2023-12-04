@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:playmusic/ui/menu/home/home_components/song_box.dart';
 import 'package:playmusic/utils/image_constant.dart';
 import 'package:playmusic/widget/chip_view.dart';
 import 'package:playmusic/widget/custom_image_view.dart';
@@ -19,6 +20,10 @@ class _HomeScreenState extends State<HomeScreen> {
         slivers: [
           titleAppBar(),
           filterChipBar(),
+          SliverToBoxAdapter(
+              child: SongBoxWidget(
+            headText: 'Listen Again',
+          ))
         ],
       ),
     );
@@ -54,6 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: SizedBox(
             height: 40,
             child: ListView.separated(
+                padding: const EdgeInsets.symmetric(horizontal: 18),
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
