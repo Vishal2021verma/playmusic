@@ -3,7 +3,8 @@ import 'package:playmusic/utils/image_constant.dart';
 import 'package:playmusic/widget/custom_image_view.dart';
 
 class ProfileImage extends StatelessWidget {
-  const ProfileImage({super.key});
+  const ProfileImage({super.key, this.size = 24});
+  final double size;
 
   @override
   Widget build(BuildContext context) {
@@ -11,8 +12,8 @@ class ProfileImage extends StatelessWidget {
       borderRadius: BorderRadius.circular(1000),
       child: CustomImageView(
         imagePath: ImageConstant.profile,
-        width: 24,
-        height: 24,
+        width: size,
+        height: size,
       ),
     );
   }

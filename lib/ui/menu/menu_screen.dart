@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:playmusic/ui/menu/home_screen.dart';
+import 'package:playmusic/ui/menu/home/home_screen.dart';
 import 'package:playmusic/ui/menu/search_screen.dart';
 import 'package:playmusic/ui/menu/setting_screen.dart';
 import 'package:playmusic/utils/colors_resources.dart';
