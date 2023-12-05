@@ -16,7 +16,7 @@ class ChipButton extends StatelessWidget {
           decoration: BoxDecoration(
               color: ColorResource.miniPlayerBackgroundColor,
               borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: ColorResource.splashColor)),
+              border: Border.all(color: Colors.white12)),
           child: Center(
               child: Text(
             text,

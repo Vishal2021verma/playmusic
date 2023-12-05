@@ -4,6 +4,7 @@ import 'package:playmusic/utils/image_constant.dart';
 import 'package:playmusic/widget/chip_view.dart';
 import 'package:playmusic/widget/custom_image_view.dart';
 import 'package:playmusic/widget/profile_image_view.dart';
+import 'package:playmusic/widget/song_card_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,10 +21,8 @@ class _HomeScreenState extends State<HomeScreen> {
         slivers: [
           titleAppBar(),
           filterChipBar(),
-          SliverToBoxAdapter(
-              child: SongBoxWidget(
-            headText: 'Listen Again',
-          ))
+          listenAgain(),
+          listenAgain(),
         ],
       ),
     );
@@ -55,11 +54,11 @@ class _HomeScreenState extends State<HomeScreen> {
       pinned: true,
       toolbarHeight: 0,
       bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(40),
+          preferredSize: const Size.fromHeight(50),
           child: SizedBox(
-            height: 40,
+            height: 50,
             child: ListView.separated(
-                padding: const EdgeInsets.symmetric(horizontal: 18),
+                padding: const EdgeInsets.only(left: 18, bottom: 10),
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
@@ -74,5 +73,33 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemCount: 9),
           )),
     );
+  }
+
+  Widget listenAgain() {
+    return SliverToBoxAdapter(
+        child: SongBoxWidget(
+      subHeadText: 'Vishal Verma',
+      headText: 'Listen Again',
+      isProfile: true,
+      action: () {},
+      actionText: 'More',
+      body: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: List.generate(
+              10,
+              (index) => Padding(
+                    padding: EdgeInsets.only(left: index == 0 ? 18.0 : 10),
+                    child: const Column(
+                      children: [
+                        SongCardWidget(),
+                        SizedBox(height: 14),
+                        SongCardWidget(),
+                      ],
+                    ),
+                  )),
+        ),
+      ),
+    ));
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:playmusic/utils/colors_resources.dart';
 import 'package:playmusic/widget/profile_image_view.dart';
 
+// ignore: must_be_immutable
 class SongBoxWidget extends StatelessWidget {
   SongBoxWidget(
       {super.key,
@@ -9,19 +10,24 @@ class SongBoxWidget extends StatelessWidget {
       this.subHeadText,
       this.isProfile = false,
       this.action,
-      this.actionText});
+      this.actionText,
+      this.body});
   final bool isProfile;
   final String? subHeadText;
   final String headText;
   final String? actionText;
   dynamic action;
+  final Widget? body;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 30),
       child: Column(
-        children: [boxHead()],
+        children: [
+          boxHead(),
+          body ?? const SizedBox.shrink(),
+        ],
       ),
     );
   }
@@ -30,8 +36,8 @@ class SongBoxWidget extends StatelessWidget {
     return InkWell(
       onTap: action ?? () {},
       child: Container(
-        margin: const EdgeInsets.only(bottom: 10),
-        padding: const EdgeInsets.symmetric(horizontal: 18),
+        color: ColorResource.primaryColor,
+        padding: const EdgeInsets.only(left: 18, right: 18, bottom: 10),
         child: Row(
           children: [
             isProfile
@@ -84,13 +90,13 @@ class SongBoxWidget extends StatelessWidget {
                                   color: Colors.transparent,
                                   borderRadius: BorderRadius.circular(100),
                                   border: Border.all(
-                                      color: ColorResource.textGreyColor,
+                                      color: Colors.white10,
                                       width: 1,
                                       style: BorderStyle.solid)),
                               child: Text(
                                 actionText!,
                                 style: const TextStyle(
-                                    fontSize: 8,
+                                    fontSize: 10,
                                     fontWeight: FontWeight.w300,
                                     color: ColorResource.textGreyColor),
                               ),
