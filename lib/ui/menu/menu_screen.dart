@@ -3,6 +3,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:playmusic/ui/menu/home/home_screen.dart';
 import 'package:playmusic/ui/menu/search_screen.dart';
 import 'package:playmusic/ui/menu/setting_screen.dart';
+import 'package:playmusic/ui/player/player_view.dart';
 import 'package:playmusic/utils/colors_resources.dart';
 
 class MenuScreen extends StatefulWidget {
@@ -50,11 +51,24 @@ class _MenuScreenState extends State<MenuScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _widgetOptions.elementAt(_selectedIndex),
-      // bottomSheet: Container(
-      //   color: Colors.black54,
-      //   height: 60,
-      //   child: const Center(child: Text('Bottom Sheet')),
-      // ),
+      bottomSheet: Container(
+        color: Colors.white,
+        height: 60,
+        child: InkWell(
+          onTap:  (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => const PlayerView()));
+          },
+          child: Hero(
+              tag: "hero_tag",
+              child: Container(
+                  width: 60,
+                  height: 60,
+                  decoration: BoxDecoration(
+                      color: Colors.amber,
+                      borderRadius: BorderRadius.circular(5)),
+                  child: const Center(child: Text('Bottom Sheet')))),
+        ),
+      ),
       bottomNavigationBar: GNav(
         gap: 8,
         color: ColorResource.miniPlayerBackgroundColor,
