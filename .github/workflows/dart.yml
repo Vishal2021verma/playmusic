@@ -5,7 +5,7 @@ name: Flutter CI
 on:
   push:
     branches:
-    - m
+    - main
     
 # on: push    # Default will running for every branch.
     
@@ -56,5 +56,5 @@ jobs:
       with:
         appId: ${{secrets.APP_ID}}
         serviceCredentialsFileContent: ${{secrets.CREDENTIAL_FILE_CONTENT}}
-        groups: sparrow_team
+        groups: CiCd
         file: build/app/outputs/flutter-apk/app-debug.apk  
