@@ -52,7 +52,7 @@ jobs:
     
     # Upload generated apk to the artifacts.
     - name: Upload artifact to Firebase App Distribution
-      uses: actions/upload-artifact@v1
+      uses: wzieba/Firebase-Distribution-Github-Action@v1
       with:
         appId: ${{secrets.APP_ID}}
         serviceCredentialsFileContent: ${{secrets.CREDENTIAL_FILE_CONTENT}}
